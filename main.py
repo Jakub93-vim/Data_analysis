@@ -27,9 +27,13 @@ dataset_complete = dataset_complete.drop(columns=['Image-URL-S','Image-URL-L'])
 #making all data lower case
 dataset_complete = dataset_complete.applymap(lambda x: x.lower() if type(x) == str else x)
 
+print(str(dataset_complete.columns.values))
 #rearranging the dataset
 cols = list(dataset_complete.columns.values)
-#dataset_complete = dataset_complete[ cols[0:2] + cols[-4:-1] + cols[3:8] ]
+dataset_complete = dataset_complete[ cols[0:3] + cols[-4:] + cols[3:6] ]
+
+#sorting the values
+dataset_complete = dataset_complete.sort_values(['Book-Rating'])
 
 
 pd.set_option('display.width', 400)
