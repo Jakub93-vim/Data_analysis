@@ -33,8 +33,7 @@ cols = list(dataset_complete.columns.values)
 dataset_complete = dataset_complete[ cols[0:3] + cols[-4:] + cols[3:6] ]
 
 #sorting the values
-dataset_complete = dataset_complete.sort_values(['Book-Rating'])
-
+dataset_complete = dataset_complete.sort_values(['Book-Rating', 'User-ID'])
 
 pd.set_option('display.width', 400)
 pd.set_option('max_columns', None)
