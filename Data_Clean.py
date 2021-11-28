@@ -6,12 +6,12 @@ import pandas as pd
 
 url = 'http://www2.informatik.uni-freiburg.de/~cziegler/BX/BX-CSV-Dump.zip'
 
-'''
+
 #download and extract files from the url
 request = requests.get(url)
 zipDocument = zipfile.ZipFile(BytesIO(request.content))
 zipDocument.extractall()
-'''
+
 #read all data
 books = pd.read_csv('BX-Books.csv', encoding='cp1251', sep=';', error_bad_lines=False)
 ratings = pd.read_csv('BX-Book-Ratings.csv', encoding='cp1251', sep=';')
@@ -35,6 +35,10 @@ dataset_complete = dataset_complete[ cols[0:3] + cols[-4:] + cols[3:6] ]
 #sorting the values
 dataset_complete = dataset_complete.sort_values(['Book-Rating', 'User-ID'])
 
+#displays data
 pd.set_option('display.width', 400)
 pd.set_option('max_columns', None)
 print(dataset_complete)
+
+#saves to a new file
+dataset_complete.to_csv('dataset_complete.csv')
