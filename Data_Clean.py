@@ -41,4 +41,4 @@ pd.set_option('max_columns', None)
 print(dataset_complete)
 
 #saves to a new file
-dataset_complete.to_csv('dataset_complete.csv')
+dataset_complete.to_csv('dataset_complete.csv', index=False)
