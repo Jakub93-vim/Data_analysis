@@ -21,8 +21,10 @@ app = Flask(__name__)
 def insert_book():
     if request.method == "POST":
         text = request.form["nm"]
+
+        recommend_book = text + "second book" + " last book "
         
-        return render_template("web_interface.html", content = "ahoj jak je" )
+        return render_template("web_interface.html", content = recommend_book )
     else:
         return render_template("web_interface.html")
 
